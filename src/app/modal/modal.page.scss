@@ -1,0 +1,151 @@
+/*
+ion-item{
+    --background: #3880ff;
+    --color: #fff;
+}
+ion-button{
+    --background: #062f77;
+}
+ion-grid{
+    padding-top: 150px;
+}
+a{
+    color: #fff;
+}
+ion-row {
+    justify-content: center;
+}*/
+
+
+ion-header{
+
+    ion-title {
+        color: #064172;
+    }
+
+    .text-header {
+        color: #064172;
+    }
+    ion-toolbar{
+    
+    // border-radius: 0 0 20px 20px;
+    --background: white;
+    // color: white;
+
+    }
+
+    ion-item{
+       
+        ion-title{
+            text-align: start;
+            color: #064172;
+            font-weight: 600;
+            padding-left: 10px;
+        }
+
+        ion-searchbar{
+            --border-radius: 10px;
+            --background: white;
+            color: #064172;
+            font-weight: bolder;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+
+.title-wrapper {
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #064172;
+    display: flex;
+    padding-right: 15px;
+
+    .img-wrapper {
+        height: 40px;
+        width: 40px;
+    
+        border: 3px solid #064172;
+    
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+    
+    }
+
+    .user-info-wrapper {
+        
+        h5 {
+            font-weight: 900;
+            margin: 0;
+            font-size: 13px;
+            color: #064172;
+        }
+
+        h6 {
+        
+            margin: 0;
+            font-size: 12px;
+            color: #14A3D9;
+            font-weight: bolder;
+        }
+
+        margin-left: 10px;
+    }
+}
+
+.feed-content {
+    --background: white;
+
+    h2 {
+        color: #064172;
+    }
+}
+
+.feed-card {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 3px rgba(0,0,0,0.1);
+
+    p {
+        color: #064172;
+    }
+
+    h5 {
+        font-weight: bolder;
+        color: #14A3D9;
+        text-align: left;
+        margin-top: 10px;
+    }
+    
+}
+
+.info-tag {
+    background-color: #d5f1f5;
+    color: #064172;
+    
+    padding: 0 10px 0 10px;
+    border-radius: 20px;
+    margin-left: auto;
+    height: 25px;
+
+    p {
+        font-weight: bolder;
+        font-size: 12px;
+        margin: 5px
+    }
+}
+
+.round-button {
+    --border-radius: 30px;
+    border-radius: 30px;
+    width: 100%;
+}

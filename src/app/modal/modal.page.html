@@ -1,0 +1,94 @@
+<!-- <ion-content color="primary">
+  <form  #form="ngForm" >
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col class="ion-text-center" size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Preços</h3>
+          </div>
+          <div class="ion-padding">
+            <ion-item>
+              <h2>Gasolina Premium: R$5,34</h2>
+            </ion-item>
+            <ion-item>
+              <h2>Gasolina Comum: R$4,85</h2>
+            </ion-item>
+            <ion-item>
+              Qualidade: Boa
+            </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content> -->
+
+
+<ion-header class="ion-no-border">
+  <ion-toolbar> 
+    <ion-item lines="none">
+      <ion-title class="text-header" >
+       
+      </ion-title>
+      <ion-buttons slot="end" >
+        <ion-button >
+          <ion-icon  name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="feed-content">
+
+
+  <div >
+    <ion-card  color="#f8f8f8" class="feed-card">
+
+
+      <div class="title-wrapper">
+        
+        <div >
+          <ion-icon name="newspaper"></ion-icon>
+        </div>
+
+        <div class="user-info-wrapper">
+          <h5> Posto expresso</h5>
+        
+        </div>
+
+      
+        
+        
+      </div>
+      <ion-card-content>
+        <ion-text color="medium">
+            <div  style="display: flex; margin-top: 7px;" >
+              <p>
+                <strong>Preço Alcool:  </strong>R${{precoAlcool}}
+              </p>
+           
+            </div>
+            <div style="display: flex; margin-top: 7px;" >
+            <p><strong>Email:  </strong> </p>
+            </div>
+            <div style="margin-top: 7px;" >
+              <div style="display: flex; margin-top: 5px;" >
+                <ion-icon name="location-outline" color="medium">
+                </ion-icon>
+                <p><strong>Logradouro:</strong>  </p> 
+              </div>
+              <div style="margin-top: 7px;" >
+                <p><strong>Numero:</strong>  </p>
+              </div>
+            </div>
+
+            <ion-button class="round-button"   expand="block">Fechar</ion-button>
+
+        </ion-text>
+        
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

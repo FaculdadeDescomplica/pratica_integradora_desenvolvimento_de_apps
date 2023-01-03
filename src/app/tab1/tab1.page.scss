@@ -1,0 +1,26 @@
+ion-header{
+    --background: #3880ff;
+    --color: #fff;
+}
+
+ion-content {
+    --background: none !important; 
+  }
+  
+  .maps {
+    width: 100%;
+    height: 100%;
+  }
+  
+  capacitor-google-maps {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .my-custom-modal-css .modal-wrapper {
+    height: 390px; 
+   top: 45%;
+   position: absolute; 
+   display: block; 
+ }

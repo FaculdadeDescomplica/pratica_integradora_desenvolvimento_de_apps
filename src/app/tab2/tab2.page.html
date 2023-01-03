@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      
+      <ion-avatar item-start>
+        <img src={{item.image}}>
+      </ion-avatar>
+      <ion-grid>
+        <ion-row>
+          <ion-col>{{item.title}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>{{item.subTitle}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>

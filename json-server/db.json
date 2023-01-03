@@ -1,0 +1,52 @@
+{
+    "gas-stations": [
+      {
+        "id": 1,
+        "title": "Posto Expresso",
+        "addresss": "Av Amazonas",
+        "number": "4000",
+        "city": "Belo Horizonte",
+        "lat": -22.9098368,
+        "lng": -43.5713391,
+        "fuels": [
+          {
+            "id": 1,
+            "name": "Gasolina",
+            "price": 4.65
+          },
+          {
+            "id": 2,
+            "name": "Alcool",
+            "price": 4.65
+          }]
+      },
+      {
+        "id": 2,
+        "title": "Posto Novo",
+        "addresss": "Av Amazonas",
+        "number": "4000",
+        "city": "Belo Horizonte",
+        "lat": -22.9105318,
+        "lng": -43.2364147,
+        "fuels": [
+          {
+            "id": 1,
+            "name": "Gasolina",
+            "price": 4.65
+          },
+          {
+            "id": 2,
+            "name": "Alcool",
+            "price": 4.65
+          }]
+      }
+    ],
+    "users": [
+      {
+        "id": 1,
+        "name": "Bruno Hauck",
+        "email": "brunohauck@gmail.com",
+        "phone": "1234567890",
+        "password": "123456"
+      }]
+}
