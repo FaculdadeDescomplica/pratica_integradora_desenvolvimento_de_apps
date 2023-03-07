@@ -20,7 +20,8 @@ export class AppComponent {
   }
   sqLiteGenerateDB(){
     this.sqlite.create({ name: 'data.db', location: 'default' })
-      .then((db: SQLiteObject) => { db.executeSql(SQL, [])
+      .then((db: SQLiteObject) => { 
+        db.executeSql(SQL, [])
       .then(() => console.log('Executed SQL'))
       .catch(e => console.log(e));
     }).catch(e => console.log(e));

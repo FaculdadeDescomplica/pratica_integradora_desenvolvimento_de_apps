@@ -40,4 +40,12 @@ export class GasService {
     var url: string = this.BASE_URL + 'gas-stations/' + id;
     return this.http.delete<GasStation>(url, httpOptions);
   }
+
+  deleteUser(gas: GasStation | string): Observable<GasStation> {
+    const id = typeof gas === 'string' ? gas : gas.id;
+    var url: string = this.BASE_URL + 'gas-stations/' + id;
+    return this.http.delete<GasStation>(url, httpOptions);
+  }
+
+  
 }

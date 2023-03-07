@@ -35,6 +35,10 @@ const routes: Routes = [
   {
     path: 'fuel',
     loadChildren: () => import('./fuel/fuel.module').then( m => m.FuelPageModule)
+  },
+  {
+    path: 'professor',
+    loadChildren: () => import('./professor/professor.module').then( m => m.ProfessorPageModule)
   }
 ];
 @NgModule({
@@ -44,3 +48,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+//git checkout -b new_branch

@@ -12,7 +12,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-  BASE_URL: string = 'http://192.168.0.34:3000/';
+  //BASE_URL: string = 'http://192.168.0.34:3000/';
+  BASE_URL: string = 'http://localhost:3000/';
   constructor(private http: HttpClient) { }
 
   /**  GET user api Gell All Custmoer Function  */

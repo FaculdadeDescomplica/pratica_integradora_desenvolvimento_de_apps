@@ -5,6 +5,7 @@ import { ModalController } from '@ionic/angular';
 import { environment } from '../../environments/environment';
 import { ModalPage } from '../modal/modal.page';
 import { GasStation } from '../models/gas-station';
+
 import { GasService } from '../services/gas.service';
 
 @Component({
@@ -12,7 +13,9 @@ import { GasService } from '../services/gas.service';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page  {
+
+export class Tab1Page {
+
 
   @ViewChild('map') mapRef!: ElementRef<HTMLElement>;
   newMap!: GoogleMap;
@@ -25,7 +28,7 @@ export class Tab1Page  {
   gasStations: GasStation[] = [];
   constructor(
     public modalCtrl: ModalController,
-    private service: GasService) {}
+    private service: GasService) { }
   ngOnInit(): void {
     this.getGasStations();
   }
@@ -49,7 +52,7 @@ export class Tab1Page  {
   }
 
   async locate() {
-    if(this.newMap) await this.newMap.enableCurrentLocation(true);
+    if (this.newMap) await this.newMap.enableCurrentLocation(true);
   }
 
   async createMap() {
@@ -68,19 +71,19 @@ export class Tab1Page  {
       await this.addMarker(this.center.lat, this.center.lng);
       await this.addListeners();
       //await this.locate();  
-      await this.loadMarkers(); 
-    } catch(e) {
+      await this.loadMarkers();
+    } catch (e) {
       console.log(e);
     }
   }
 
   async loadMarkers() {
-    if(this.newMap) await 
-    this.gasStations
-    .forEach(gasStation => {
-      this.addMarkers(gasStation.lat, gasStation.lng, gasStation.title);
-      
-    });
+    if (this.newMap) await
+      this.gasStations
+        .forEach(gas => {
+          this.addMarkers(gas.lat, gas.lng, gas.title);
+
+        });
   }
 
   async setCamera() {
@@ -96,20 +99,20 @@ export class Tab1Page  {
     // Enable traffic Layer
     await this.newMap.enableTrafficLayer(true);
 
-    if(Capacitor.getPlatform() !== 'web') {
+    if (Capacitor.getPlatform() !== 'web') {
       await this.newMap.enableIndoorMaps(true);
     }
 
 
     await this.newMap.setPadding({
-        top: 50,
-        left: 50,
-        right: 0,
-        bottom: 0,
-      });
+      top: 50,
+      left: 50,
+      right: 0,
+      bottom: 0,
+    });
   }
 
-  async addMarkers(lat:number, lng:number, title:string) {
+  async addMarkers(lat: number, lng: number, title: string) {
     await this.newMap.addMarkers([
       {
         coordinate: {
@@ -120,22 +123,22 @@ export class Tab1Page  {
       }
     ]);
   }
-  
-  async addMarker(lat:number, lng: number) {
+
+  async addMarker(lat: number, lng: number) {
     // Add a marker to the map
-    if(this.markerId) this.removeMarker();
+    if (this.markerId) this.removeMarker();
     this.markerId = await this.newMap.addMarker({
       coordinate: {
         lat: lat,
         lng: lng,
       },
-       title: 'Posto de Gasolina',
+      title: 'Posto de Gasolina',
       draggable: true,
     });
-    
+
   }
 
-  async removeMarker(id?:any) {
+  async removeMarker(id?: any) {
     await this.newMap.removeMarker(id ? id : this.markerId);
   }
 
@@ -158,7 +161,7 @@ export class Tab1Page  {
       this.addMarker(event.latitude, event.longitude);
     });
 
-    await this.newMap.setOnMyLocationButtonClickListener((event:any) => {
+    await this.newMap.setOnMyLocationButtonClickListener((event: any) => {
       console.log('setOnMyLocationButtonClickListener', event);
       this.addMarker(event.latitude, event.longitude);
     });
@@ -176,10 +179,9 @@ export class Tab1Page  {
       component: ModalPage,
       cssClass: 'my-custom-modal-css',
       componentProps: {
-        gasolina: gasStation.fuels[0].name,
-        precoGasolina: gasStation.fuels[0].price,
-        alcool: gasStation.fuels[1].price,
-        precoAlcool: gasStation.fuels[1].price,
+        name: gasStation.title,
+        lat: gasStation.lat,
+        lng: gasStation.lng,
       },
     });
     modal.present();

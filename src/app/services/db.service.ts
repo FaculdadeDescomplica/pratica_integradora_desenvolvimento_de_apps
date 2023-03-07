@@ -1,11 +1,9 @@
 
 import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
-
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-
 import { User } from '../models/user';
 import { GasStation, GasStationSql } from '../models/gas-station';
 @Injectable({
@@ -27,8 +25,14 @@ export class DbService {
         location: 'default'
       })
         .then((db: SQLiteObject) => {
+          console.log('------------------<Abriu o banco de dados>----------');
           this.storage = db;
-        });
+        }).catch((error: any) => {
+          console.log('------------------<Erro no Banco de dados ao abrir>----------4');
+          console.log('ocorreu um erro');
+          console.error(error)
+
+        });;
 
     });
   }
@@ -42,6 +46,15 @@ export class DbService {
       .then((res: any) => {
         console.log(res)
         this.getUsers();
+      });
+  }
+
+  addTeacher(user: User) {
+    let data = [user.name, user.email, user.phone, user.password];
+    return this.storage.executeSql('INSERT INTO teacher (name, email, materia) VALUES (?, ?, ?)', data)
+      .then((res: any) => {
+        console.log(res)
+        return res;
       });
   }
 

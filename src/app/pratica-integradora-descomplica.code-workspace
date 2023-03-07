@@ -17,6 +17,15 @@
 		},
 		{
 			"path": "../../../../we-pray-IOS-version"
+		},
+		{
+			"path": "../../../praticaIonic"
+		},
+		{
+			"path": "../../../../../descomplica/myApp"
+		},
+		{
+			"path": "../../../../../descomplica/angular-15-firebase-crud"
 		}
 	],
 	"settings": {}
