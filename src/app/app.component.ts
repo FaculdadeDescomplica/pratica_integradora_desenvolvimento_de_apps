@@ -13,7 +13,7 @@ const SQL = 'CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY, name TEXT N
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-//Aula Git 
+//Aula Git Desenvolvimento 0.0.5
 export class AppComponent {
   constructor( private sqlite: SQLite, public platform: Platform) {}
   ngOnInit() {
