@@ -14,4 +14,5 @@ import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
+//Pratica descomplica 
 export class AppModule {}
