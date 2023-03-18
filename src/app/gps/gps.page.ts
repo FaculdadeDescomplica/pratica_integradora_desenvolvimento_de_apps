@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Geolocation } from '@capacitor/geolocation';
 @Component({
   selector: 'app-gps',
   templateUrl: './gps.page.html',
@@ -11,6 +11,11 @@ export class GpsPage implements OnInit {
 
   public lat = 0;
   public lng = 0;
+
+  public latCap = 0;
+  public lngCap = 0;
+
+  public string:any;
 
   public ngOnInit(): void {
     this.getLocation();
@@ -33,5 +38,14 @@ export class GpsPage implements OnInit {
     } else {
       alert("Geo .");
     }
+    this.printCurrentPosition();
   }
+
+  printCurrentPosition = async () => {
+    const coordinates = await Geolocation.getCurrentPosition();
+    console.log('Current position:', coordinates);
+    this.latCap = coordinates.coords.latitude;
+    this.lngCap = coordinates.coords.longitude;
+    this.string = coordinates.coords.altitude?.toString();
+  };
 }

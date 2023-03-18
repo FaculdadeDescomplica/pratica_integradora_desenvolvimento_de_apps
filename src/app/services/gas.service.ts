@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class GasService {
-  BASE_URL: string = 'http://192.168.0.34:3000/';
+  BASE_URL: string = 'http://localhost:3000/';
   constructor(private http: HttpClient) { }
 
   /**  GET gas api */
@@ -28,6 +28,13 @@ export class GasService {
     var url: string = this.BASE_URL + 'gas-stations';
     return this.http.post<GasStation>(url, gas, httpOptions);
   }
+
+  saveLatLng(gas: any): Observable<GasStation> {
+    console.log(gas);
+    var url: string = this.BASE_URL + 'gas-stations';
+    return this.http.post<GasStation>(url, gas, httpOptions);
+  }
+
 
   /**  PUT gas api EDIT gas Function  */
   editGasStation(gas: any): Observable<GasStation> {

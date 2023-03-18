@@ -21,13 +21,13 @@ export class Tab3Page {
   }
   getDB() {
     return this.sqlite.create({
-      name: 'data.db',
+      name: 'data2.db',
       location: 'default'
     });
   }
-  createTable(){
+  async createTable (){
     const SQL = 'CREATE TABLE photos( id INTEGER PRIMARY KEY, fileName VARCHAR(120), path VARCHAR(120));'
-    this.getDB().then((db: SQLiteObject) => {
+    await this.getDB().then((db: SQLiteObject) => {
       db.executeSql(SQL, [])
         .then(() => console.log('Executed SQL'))
         .catch(e => console.log(e));
@@ -35,7 +35,8 @@ export class Tab3Page {
     .catch(e => console.log(e));
 
   }
-  saveToDB(){
+  async saveToDB(){
+    await this.createTable();
     let count = 0;
     this.photoService.getPhotos().forEach(photo => {
       let sql = 'insert into photos (fileName, path) values (?,?)'; 

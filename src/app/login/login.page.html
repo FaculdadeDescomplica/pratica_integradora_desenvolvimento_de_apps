@@ -24,11 +24,15 @@
           Caso não tenha conta, <a routerLink='/register'>
             cadastre-se</a>!
         </div><br />
-        <div text-center>
-          Jump <a routerLink='/app/tabs/tab1'>
-            cadastre-se</a>!
-        </div>
+  
         <ion-button (click)='testeDB()'>Teste db</ion-button>
+
+        <ion-button (click)='photoGalery()'>Photos</ion-button>
+
+        <ion-button (click)='goToGps()'>GPS</ion-button>
+        <ion-button (click)='goToMap()'>Map</ion-button>
+        <ion-button (click)='goToRegGasStation()'>Register Gas Station</ion-button>
+        
       </ion-row>
     </ion-grid>
   </form>

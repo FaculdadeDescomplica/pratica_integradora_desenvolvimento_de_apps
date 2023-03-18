@@ -10,6 +10,7 @@ import { RegisterGasStationPage } from './register-gas-station.page';
 import { HttpClientModule } from '@angular/common/http';
 import { DbService } from '../services/db.service';
 import { GasService } from '../services/gas.service';
+import { ModalFuelPage } from '../modal-fuel/modal-fuel.page';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { GasService } from '../services/gas.service';
     ReactiveFormsModule,
     RegisterGasStationPageRoutingModule
   ],
-  declarations: [RegisterGasStationPage],
+  declarations: [RegisterGasStationPage, ModalFuelPage ],
   providers: [GasService, DbService]
 })
 export class RegisterGasStationPageModule {}

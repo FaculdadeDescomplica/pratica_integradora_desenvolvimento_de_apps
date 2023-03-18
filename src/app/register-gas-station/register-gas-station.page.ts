@@ -4,6 +4,8 @@ import { GasStation } from '../models/gas-station';
 import { DbService } from '../services/db.service';
 import { GasService } from '../services/gas.service';
 import { Geolocation } from '@capacitor/geolocation';
+import { ModalController } from '@ionic/angular';
+import { ModalFuelPage } from '../modal-fuel/modal-fuel.page';
 @Component({
   selector: 'app-register-gas-station',
   templateUrl: './register-gas-station.page.html',
@@ -14,7 +16,7 @@ export class RegisterGasStationPage implements OnInit {
   gas: GasStation = new GasStation('', '', '', '', '', 0, 0, []);
   gasForm = this.fb.group({
     title: ['', Validators.required],
-    address: ['', [Validators.required, Validators.email]],
+    address: ['', [Validators.required]],
     number: ['', Validators.required],
     city: ['', Validators.required],
     lat: ['', Validators.required],
@@ -23,6 +25,7 @@ export class RegisterGasStationPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private db: DbService,
+    public modalCtrl: ModalController,
     private service: GasService) { }
 
   async ngOnInit() {
@@ -31,9 +34,8 @@ export class RegisterGasStationPage implements OnInit {
       console.log('Current position:', coordinates);
       if (coordinates?.coords) {
         this.gasForm.controls['lat'].setValue(coordinates.coords.latitude.toString());
-        this.gasForm.controls['lng'].setValue(coordinates.coords.latitude.toString());
+        this.gasForm.controls['lng'].setValue(coordinates.coords.longitude.toString());
       }
-
     } catch (e) {
       console.log(e);
     }
@@ -49,7 +51,7 @@ export class RegisterGasStationPage implements OnInit {
       });
   }
 
-  onSubmit(): void {
+  async onSubmit() {
     if (this.gasForm.controls['title'].value)
       this.gas.title = this.gasForm.controls['title'].value;
     if (this.gasForm.controls['address'].value)
@@ -61,16 +63,21 @@ export class RegisterGasStationPage implements OnInit {
     if (this.gasForm.controls['lat'].value)
       this.gas.lat = +this.gasForm.controls['lat'].value;
     if (this.gasForm.controls['lng'].value)
-      this.gas.lat = +this.gasForm.controls['lng'].value;
+      this.gas.lng = +this.gasForm.controls['lng'].value;
 
-    this.db.addGas(this.gas);
+    //this.db.addGas(this.gas);
 
+    await sessionStorage.setItem('gas',JSON.stringify(this.gas))
+
+    this.openModal();
     /*
-    this.service.addUser(this.user).subscribe(
+    this.service.addGasStation(this.gas).subscribe(
       {
         next: (response) => {
           console.log(response)
-          alert("Usuário cadastrado com sucesso.");
+          alert("Posto cadastrado com sucesso.");
+
+          sessionStorage.setItem('gas')
 
         },
         error: (erro: any) => {
@@ -80,5 +87,13 @@ export class RegisterGasStationPage implements OnInit {
         }
       }
     )*/
+  }
+  async openModal() {
+
+    const modal = await this.modalCtrl.create({
+      component: ModalFuelPage,
+      cssClass: 'my-custom-modal-css',
+    });
+    modal.present();
   }
 }

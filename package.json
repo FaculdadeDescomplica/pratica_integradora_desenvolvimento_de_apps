@@ -30,6 +30,7 @@
     "@capacitor/haptics": "4.1.0",
     "@capacitor/keyboard": "4.1.0",
     "@capacitor/preferences": "^4.0.2",
+    "@capacitor/push-notifications": "^4.1.2",
     "@capacitor/status-bar": "4.1.0",
     "@ionic/angular": "^6.1.9",
     "cordova-sqlite-storage": "^6.0.0",

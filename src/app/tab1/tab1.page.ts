@@ -1,11 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
+import { Geolocation } from '@capacitor/geolocation';
 import { GoogleMap, MapType } from '@capacitor/google-maps';
 import { ModalController } from '@ionic/angular';
 import { environment } from '../../environments/environment';
 import { ModalPage } from '../modal/modal.page';
 import { GasStation } from '../models/gas-station';
-
 import { GasService } from '../services/gas.service';
 
 @Component({
@@ -16,15 +16,14 @@ import { GasService } from '../services/gas.service';
 
 export class Tab1Page {
 
-
   @ViewChild('map') mapRef!: ElementRef<HTMLElement>;
   newMap!: GoogleMap;
   center: any = {
-    lat: -23.0008826,
-    lng: -43.3505312,
+    lat: -19.8965911,
+    lng: -43.9080174,
   };
-  markerId: string = '';
 
+  markerId: string = '';
   gasStations: GasStation[] = [];
   constructor(
     public modalCtrl: ModalController,
@@ -36,6 +35,7 @@ export class Tab1Page {
     this.service.getGasStation().subscribe(
       {
         next: (response) => {
+          console.log('------------------<Dados API - Postos>----------------')
           console.log(response)
           this.gasStations = response;
         },
@@ -49,11 +49,29 @@ export class Tab1Page {
 
   ionViewDidEnter() {
     this.createMap();
+    this.locate();
   }
 
+
   async locate() {
-    if (this.newMap) await this.newMap.enableCurrentLocation(true);
+    this.printCurrentPosition();
+    //if (this.newMap) await this.newMap.enableCurrentLocation(true);
   }
+
+
+  printCurrentPosition = async () => {
+    const coordinates = await Geolocation.getCurrentPosition();
+    console.log('Current position:', coordinates);
+    await this.newMap.setCamera({
+      coordinate: {
+        lat: coordinates.coords.latitude,
+        lng: coordinates.coords.longitude,
+      },
+      zoom: 13,
+    });
+  
+
+  };
 
   async createMap() {
 
@@ -68,7 +86,7 @@ export class Tab1Page {
         },
 
       });
-      await this.addMarker(this.center.lat, this.center.lng);
+      //await this.addMarker(this.center.lat, this.center.lng);
       await this.addListeners();
       //await this.locate();  
       await this.loadMarkers();
@@ -81,6 +99,8 @@ export class Tab1Page {
     if (this.newMap) await
       this.gasStations
         .forEach(gas => {
+          console.log("-----------------------<1>------------------")
+          console.log(gas.title)
           this.addMarkers(gas.lat, gas.lng, gas.title);
 
         });
@@ -173,15 +193,14 @@ export class Tab1Page {
   }
 
   async goToDetail(gasStation: GasStation) {
-    //this.churchs[this.indexChurch]
-    //sessionStorage.setItem("post", JSON.stringify(this.churchs[this.indexChurch]));
+
     const modal = await this.modalCtrl.create({
       component: ModalPage,
       cssClass: 'my-custom-modal-css',
       componentProps: {
-        name: gasStation.title,
-        lat: gasStation.lat,
-        lng: gasStation.lng,
+        title: gasStation.title,
+        precoGas: gasStation.fuels[0].price,
+        precoAl: gasStation.fuels[1].price,
       },
     });
     modal.present();

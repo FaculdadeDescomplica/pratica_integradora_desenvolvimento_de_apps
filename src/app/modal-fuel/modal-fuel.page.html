@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title class="text-header">
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="modalCtrl.dismiss()">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="feed-content">
+  <div>
+    <ion-card color="#f8f8f8" class="feed-card">
+      <div class="title-wrapper">
+        <div>
+          <ion-icon name="newspaper"></ion-icon>
+        </div>
+        <div class="user-info-wrapper">
+          <h5>Informe os valores dos combustíveis</h5>
+        </div>
+      </div>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row color="primary" justify-content-center>
+            <ion-col class="ion-text-center" size-md="6" size-lg="5" size-xs="12">
+              <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <div class="ion-padding">
+                  <ion-item>
+                    <ion-input name="gas" type="text" placeholder="Preço Gasolina" ngModel required></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input name="etanol" type="text" placeholder="Preço Etanol" ngModel required></ion-input>
+                  </ion-item>
+                </div>
+                <div class="ion-padding">
+                  <ion-button size="large" type="submit" expand="block">Cadastrar</ion-button>
+                </div>
+              </form>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

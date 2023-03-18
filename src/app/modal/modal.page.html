@@ -31,7 +31,7 @@
        
       </ion-title>
       <ion-buttons slot="end" >
-        <ion-button >
+        <ion-button (click)="modalCtrl.dismiss()" >
           <ion-icon  name="close"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -54,37 +54,23 @@
         </div>
 
         <div class="user-info-wrapper">
-          <h5> Posto expresso</h5>
+          <h5>{{title}}</h5>
         
         </div>
-
-      
-        
-        
       </div>
       <ion-card-content>
         <ion-text color="medium">
             <div  style="display: flex; margin-top: 7px;" >
               <p>
-                <strong>Preço Alcool:  </strong>R${{precoAlcool}}
+                <strong>Preço Alcool:  </strong>R${{precoAl}}
               </p>
            
             </div>
             <div style="display: flex; margin-top: 7px;" >
-            <p><strong>Email:  </strong> </p>
-            </div>
-            <div style="margin-top: 7px;" >
-              <div style="display: flex; margin-top: 5px;" >
-                <ion-icon name="location-outline" color="medium">
-                </ion-icon>
-                <p><strong>Logradouro:</strong>  </p> 
-              </div>
-              <div style="margin-top: 7px;" >
-                <p><strong>Numero:</strong>  </p>
-              </div>
+            <p><strong>Preço Gasolina:  </strong>R${{precoGas}} </p>
             </div>
 
-            <ion-button class="round-button"   expand="block">Fechar</ion-button>
+            <ion-button class="round-button" (click)="modalCtrl.dismiss()"   expand="block">Fechar</ion-button>
 
         </ion-text>
         

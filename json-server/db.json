@@ -6,18 +6,18 @@
       "addresss": "Av Amazonas",
       "number": "4000",
       "city": "Belo Horizonte",
-      "lat": -22.9098368,
-      "lng": -43.5713391,
+      "lat": -19.9314776,
+      "lng": -43.9417715,
       "fuels": [
         {
           "id": 1,
           "name": "Gasolina",
-          "price": 4.65
+          "price": 5.33
         },
         {
           "id": 2,
           "name": "Alcool",
-          "price": 4.65
+          "price": 4.61
         }
       ]
     },
@@ -27,18 +27,102 @@
       "addresss": "Av Amazonas",
       "number": "4000",
       "city": "Belo Horizonte",
-      "lat": -22.9105318,
-      "lng": -43.2364147,
+      "lat": -19.9512509,
+      "lng": -43.9796231,
       "fuels": [
         {
           "id": 1,
           "name": "Gasolina",
-          "price": 4.65
+          "price": 5.6
         },
         {
           "id": 2,
           "name": "Alcool",
           "price": 4.65
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Posto Descomplica",
+      "addresss": "Av Amazonas",
+      "number": "4000",
+      "city": "Belo Horizonte",
+      "lat": -19.8965911,
+      "lng": -43.9080174,
+      "fuels": [
+        {
+          "id": 1,
+          "name": "Gasolina",
+          "price": 5.5
+        },
+        {
+          "id": 2,
+          "name": "Alcool",
+          "price": 4.62
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Brewfds",
+      "address": "fdfds",
+      "number": "fdsfds",
+      "city": "fdfsd",
+      "lat": -19.9607569,
+      "lng": -19.9607569,
+      "fuels": [
+        {
+          "id": "1",
+          "name": "Gasolina",
+          "price": 4.44
+        },
+        {
+          "id": "2",
+          "name": "Etanol",
+          "price": 3.65
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Posto Teste BH",
+      "address": "Rua um",
+      "number": "33",
+      "city": "Belo Horizonte",
+      "lat": -19.9607791,
+      "lng": -43.9498402,
+      "fuels": [
+        {
+          "id": "1",
+          "name": "Gasolina",
+          "price": "44"
+        },
+        {
+          "id": "2",
+          "name": "Etanol",
+          "price": "55"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Posto Descomplica",
+      "address": "Rua um",
+      "number": "33",
+      "city": "BH",
+      "lat": -19.96080943704667,
+      "lng": -43.94994702595858,
+      "fuels": [
+        {
+          "id": "1",
+          "name": "Gasolina",
+          "price": 5.44
+        },
+        {
+          "id": "2",
+          "name": "Etanol",
+          "price": 4.12
         }
       ]
     }

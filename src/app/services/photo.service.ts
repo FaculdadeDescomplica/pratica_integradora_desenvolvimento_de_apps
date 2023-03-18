@@ -28,15 +28,6 @@ export class PhotoService {
       webviewPath: capturedPhoto.webPath!
     });
 
-    /*
-    if(capturedPhoto){
-      this.photos.unshift({
-        filepath: "soon...",
-        webviewPath: capturedPhoto.webPath!
-      });
-
-    }*/
-    // Save the picture and add it to photo collection
     const savedImageFile = await this.savePicture(capturedPhoto);
     this.photos.unshift(savedImageFile);
 

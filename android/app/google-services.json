@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "384900104806",
+    "project_id": "descomplica-2c01e",
+    "storage_bucket": "descomplica-2c01e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384900104806:android:2b3c4135f45171c060a3a7",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384900104806-hkesbgf15a4lmlbm8pblr4d22pe2s02e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrx4VL2bUWLJigyrQVV7a4AzyInVsf7i4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384900104806-hkesbgf15a4lmlbm8pblr4d22pe2s02e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -37,6 +37,7 @@ export class RegisterPage {
     this.db.addUser(this.user);
 
     
+    
     this.service.addUser(this.user).subscribe(
       {
         next: (response) => {

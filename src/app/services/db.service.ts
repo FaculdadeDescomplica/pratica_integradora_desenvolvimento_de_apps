@@ -4,8 +4,9 @@ import { Platform } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-import { User } from '../models/user';
+
 import { GasStation, GasStationSql } from '../models/gas-station';
+import { User } from '../models/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -59,8 +60,9 @@ export class DbService {
   }
 
   addGas(gas: GasStation) {
+    console.log(gas)
     let data = [gas.title, gas.address, gas.number, gas.city, gas.lat, gas.lng];
-    return this.storage.executeSql('INSERT INTO gas (title, address, number, city, lat, lng) VALUES (?, ?, ?, ?, ?, ?)', data)
+    return this.storage.executeSql('INSERT INTO gas_station (title, address, number, city, lat, lng) VALUES (?, ?, ?, ?, ?, ?)', data)
       .then((res: any) => {
         console.log(res)
         this.getGas();
@@ -68,7 +70,7 @@ export class DbService {
   }
 
   getGas() {
-    return this.storage.executeSql('SELECT * FROM gas', []).then((res: any) => {
+    return this.storage.executeSql('SELECT * FROM gas_station', []).then((res: any) => {
       let items: GasStationSql[] = [];
       if (res.rows.length > 0) {
         console.log('existe dado')
